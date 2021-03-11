@@ -5,26 +5,28 @@
     <button class="size" onclick="changeSize()">Pixel Size</button>
     <br><br>
     Add pixel size to draw.
-    <br>
-    <div id="sizeDisplay"></div>
     <p>
     <div class="grid"></div>
     </p>
 </body>
 
 <script>
-    function changeSize() {
+    function changeSize() 
+    {
         let size = prompt("Enter size in numbers. Example: 10 for 10x10 pixel grid");
         if(size==0||size<0||size>64)
         {   alert("Enter a size between 0 and 64"); }
-        else{
+        else
+        {
         resetFunction();
         fillGrid(size);
         }
     }     
 
-    function fillGrid(size) {
-        for (i = 0; i < size * size; i++) {
+    function fillGrid(size) 
+    {
+        for (i = 0; i < size * size; i++) 
+        {
             let gridElement = document.createElement('div');
             gridElement.classList = "box";
             gridElement.addEventListener('mouseover', changeColor); document.querySelector(".grid").appendChild(gridElement);
@@ -32,11 +34,13 @@
         document.querySelector(".grid").style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     }
 
-    function changeColor(e) {
+    function changeColor(e) 
+    {
         e.target.style.backgroundColor = "black";
     }
 
-    function resetFunction() {
+    function resetFunction() 
+    {
         let grid = document.querySelector(".grid");
         const gridArray = Array.from(grid.childNodes);
         gridArray.forEach((element) => {
